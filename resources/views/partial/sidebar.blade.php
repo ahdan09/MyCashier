@@ -24,6 +24,14 @@
                         <span class="hide-menu fw-semibold">Dashboard</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('pelanggan.index') }}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-users"></i>
+                        </span>
+                        <span class="hide-menu fw-semibold">Pelanggan</span>
+                    </a>
+                </li>
                 @if (Auth::user()->role === 'admin')
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="{{ route('user.index') }}" aria-expanded="false">
@@ -33,39 +41,33 @@
                             <span class="hide-menu fw-semibold">User</span>
                         </a>
                     </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="{{ route('categori.index') }}" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-category"></i>
+                            </span>
+                            <span class="hide-menu fw-semibold">Kategori</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="{{ route('product.index') }}" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-shopping-cart"></i>
+                            </span>
+                            <span class="hide-menu fw-semibold">Produk</span>
+                        </a>
+                    </li>
                 @endif
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('pelanggan.index') }}" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-users"></i>
-                        </span>
-                        <span class="hide-menu fw-semibold">Pelanggan</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('categori.index') }}" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-category"></i>
-                        </span>
-                        <span class="hide-menu fw-semibold">Kategori</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('product.index') }}" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-shopping-cart"></i>
-                        </span>
-                        <span class="hide-menu fw-semibold">Produk</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('Transaksi.index') }}" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-cash"></i>
-                        </span>
-                        <span class="hide-menu fw-semibold">Transaksi</span>
-                    </a>
-                </li>
+                @if (Auth::user()->role === 'petugas')
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="{{ route('Transaksi.index') }}" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-cash"></i>
+                            </span>
+                            <span class="hide-menu fw-semibold">Transaksi</span>
+                        </a>
+                    </li>
+                @endif
             </ul>
         </nav>
         <!-- End Sidebar navigation -->
